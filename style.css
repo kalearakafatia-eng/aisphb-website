@@ -483,34 +483,26 @@ html, body {
 
 }
 
-@media (max-width: 900px) {
-  .mobile-buttons {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
 
 @media (max-width: 900px) {
  .mobile-buttons {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
 
-   justify-content: center;
-   gap: 40px;
-   padding: 40px;
- }
-
- .mobile-buttons {
     width: 100%;
-    max-width: 420px;   /* ✅ KEY LINE */
-    margin: 0 auto;     /* centers the whole block */
+    max-width: 420px;
+    margin: 0 auto;
     padding: 24px;
+
     box-sizing: border-box;
   }
 
 
  .mobile-btn {
-   width: 190px;
+   width: 100%;
+   max-width: 190px;
+   justify-self: center;
    height: 120px;
    background: #ffffff;
    border: none;
