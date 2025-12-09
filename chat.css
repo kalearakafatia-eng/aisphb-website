@@ -1,10 +1,7 @@
 
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
       font-family: "Manrope", sans-serif;
-      overflow-y: auto;
       background: linear-gradient(180deg, #ffffff 20%, #425ad0 20%);
     }
 
@@ -19,6 +16,14 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden; /* ⛔ body must NOT scroll */
+  font-family: "Manrope", sans-serif;
+}
+
 
     
 
@@ -285,26 +290,21 @@ html, body {
 }
 
 
-    /* main content */
-    .main-content {
-      margin-left: 250px;
-      margin-top: 0;
-      padding: 0px;
-      flex: 1;
-      transition: margin-left 0.28s ease;
-      padding-top: 0;
-    }
-
-    .main-content {
+ .main-content {
+  margin-left: 250px;
   height: 100vh;
+
   display: flex;
   flex-direction: column;
+
+  overflow: hidden; /* prevents weird double scroll */
+  transition: margin-left 0.28s ease;
 }
 
-    
-    .main-content.expanded {
-      margin-left: 60px;
-    }
+.main-content.expanded {
+  margin-left: 60px;
+}
+
 
     /* toggle button inside sidebar */
     .toggle-btn {
@@ -366,11 +366,12 @@ html, body {
 }
 
 .inside-content {
-  padding-top: 10px;
-  margin: 10px;
   flex: 1;
-  min-height: 0; /* VERY IMPORTANT for iframe */
+  overflow-y: auto;  /* ✅ THIS scrolls */
+  padding: 10px;
+  min-height: 0;
 }
+
 
 .inside-content,
 .chat-container,
@@ -410,7 +411,6 @@ html, body {
     padding: 5px;
   }
 }
-
 
 
 
