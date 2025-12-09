@@ -1,0 +1,395 @@
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      font-family: "Manrope", sans-serif;
+      overflow-y: auto;
+      background: linear-gradient(180deg, #ffffff 20%, #425ad0 20%);
+    }
+
+body {
+  background-image: url("images/book-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+    
+
+    /* sidebar */
+.sidebar {
+  background-image: url("images/sidebar-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  width: 250px;
+  background-color: #e5dbdb;
+  border-right: 5px solid #eb4c4c;
+  color: #eb4c4c;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-sizing: border-box;
+  transition: width 0.28s ease;
+  overflow-y: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  }
+
+.sidebar {
+  overflow-y: auto;
+  scrollbar-width: thin;          /* Firefox */
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 3px;
+}
+
+.GpsPic {
+  height: 150px;
+  align-self: center;
+}
+
+.sidebar.collapsed .GpsPic {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Contact dropdown hidden by default */
+.contact-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding-left: 50px;
+  transition: max-height 0.3s ease;
+}
+
+.contact-dropdown p {
+  margin: 0;    /* make vertical spacing very small */
+  line-height: 1; /* optional: makes text even tighter */
+}
+
+/* When open */
+.contact-dropdown.open {
+  max-height: 200px;
+}
+
+/* Dropdown icon style */
+.dropdown-icon {
+  transition: transform 0.3s ease;
+  display: inline-block;
+  color: #c63030;
+}
+
+/* Rotate when dropdown is open */
+.contact-toggle.active .dropdown-icon {
+  transform: rotate(-90deg);
+}
+
+/* Hide arrow when sidebar is collapsed */
+.sidebar.collapsed .dropdown-icon {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.item {
+  padding-left: 15px;
+}
+
+.text {
+  font-weight: bold;
+  color: #c63030;
+  font-size: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;   /* vertically center icon + text */
+  gap: 10px;             /* space between icon and text */
+}
+
+.icon-img {
+  width: 24px;           /* adjust size if needed */
+  height: 24px;
+}
+
+
+.small-text {
+  color: #646a87;
+  font-size: small;
+}
+
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 15px;
+  margin: 8px 0;
+  margin-left: 15px;
+
+  background: white;
+  border: 2px solid #db3a3a;
+  border-radius: 12px;
+
+  text-decoration: none;    /* remove underline */
+  font-size: 20px;
+  font-weight: bold;
+  color: #c63030;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 8px rgb(198, 118, 118);
+}
+
+.nav-btn:hover {
+  background: #f2f2f2;
+  transform: translateY(-2px);
+}
+
+.nav-btn:active {
+  transform: translateY(0px);
+}
+
+.icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+
+
+/* collapsed sidebar */
+.sidebar.collapsed {
+  width: 60px;
+  align-items: center;
+}
+
+/* menu items */
+.sidebar h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.sidebar p {
+  margin: 10px 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 100%;
+}
+
+.sidebar a { color: #c63030; text-decoration: none; display: inline-block; width:100%; }
+
+/* hide text when collapsed */
+.sidebar.collapsed h2,
+.sidebar.collapsed .text,
+.sidebar.collapsed .big-text,
+.sidebar.collapsed .small-text {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.collapsed .nav-btn span {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sidebar.collapsed .nav-btn {
+  padding: 12px;     /* square button */
+  justify-content: center;
+  margin-left: 0;     /* keep aligned */
+  width: 48px;        /* perfect for round-ish icon button */
+}
+
+.sidebar.collapsed .icon-img {
+  width: 26px;
+  height: 26px;
+}
+
+/* --- Collapsed sidebar: show ONLY the icon, hide button chrome --- */
+.sidebar.collapsed .nav-btn {
+  /* remove visual button chrome */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 6px !important;
+  margin-left: 0 !important;
+
+  /* shrink to icon size and center the icon */
+  width: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* hide the text inside the link (smoothly) */
+.sidebar.collapsed .nav-btn span {
+  display: inline-block;
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* make icon slightly bigger & sit nicely when collapsed */
+.sidebar.collapsed .nav-btn .icon-img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+/* remove left padding on the item wrapper when collapsed */
+.sidebar.collapsed .item,
+.sidebar.collapsed .nav-btn {
+  padding-left: 0;
+}
+
+/* If you want icons centered in the collapsed sidebar column */
+.sidebar.collapsed {
+  align-items: center;
+}
+
+
+
+.sidebar.collapsed .item {
+  padding-left: 0px;
+}
+
+
+    /* main content */
+    .main-content {
+      margin-left: 250px;
+      margin-top: 0;
+      padding: 0px;
+      flex: 1;
+      transition: margin-left 0.28s ease;
+      padding-top: 0;
+    }
+    
+    .main-content.expanded {
+      margin-left: 60px;
+    }
+
+    /* toggle button inside sidebar */
+    .toggle-btn {
+      background-color: #EA1722;
+      color: white;
+      border: none;
+      padding: 8px 10px;
+      cursor: pointer;
+      align-self: flex-end;
+      transition: all 0.28s;
+      border-radius: 6px;
+    }
+
+    /* when collapsed, keep button centered and small */
+    .sidebar.collapsed .toggle-btn {
+      align-self: center;
+      padding: 8px;
+    }
+
+    /* ensure icons (if any) remain visible when collapsed */
+    .icon { display:inline-block; width:24px; text-align:center; margin-right:8px; }
+
+    /* responsive tweak (optional) */
+    @media (max-width:600px) {
+      .sidebar { position: fixed; z-index: 40; }
+    }
+
+.topbar {
+  display: flex;
+  justify-content: space-between; /* left title + right image */
+  align-items: center;
+  padding: 15px 30px;
+  
+  background: white;
+  border-bottom: 4px solid #ff7070;
+  
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.topbar h1 {
+  color: #dd3939;
+}
+
+.top-image {
+  width: 120px; 
+  height: auto;
+  padding: 5px;
+}
+
+@media (max-width: 600px) {
+  .topbar h1 {
+    opacity: 0;
+  }
+}
+
+.inside-content {
+  padding-top: 10px;
+  margin: 10px;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px); /* adjust if topbar height changes */
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 8px;
+  border: 1px solid #99b6df;
+}
+
+.chat-box {
+  flex: 1;                  /* ✅ this is important */
+  overflow: hidden;         /* no scrollbars */
+  border-radius: 10px;
+}
+
+
+.chat-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .chat-container {
+    height: calc(100vh - 90px);
+    padding: 5px;
+  }
+}
+
+
+
+

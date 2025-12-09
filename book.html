@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book</title>
+  <link rel="stylesheet" href="book.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <button class="toggle-btn" id="toggleBtn" aria-label="Toggle menu">☰</button>
+
+    <img src="images/gps-sphb-logo.png" alt="GPSLOGO" class="GpsPic">
+
+
+<a href="index.html" class="nav-btn">
+  <img src="images/home-icon.png" class="icon-img" id="iconss">
+  <span>Home</span>
+</a>
+
+<a href="chat.html" class="nav-btn">
+  <img src="images/chat-icon.png" class="icon-img" id="iconss">
+  <span>Chat</span>
+</a>
+
+
+    <p class="item contact-toggle">
+  <span class="icon">
+    <img src="images/contact-icon.png" class="icon-img">
+  </span>
+  <span class="text">Contacts</span>
+  <span class="dropdown-icon"><</span>
+</p>
+
+<div class="contact-dropdown">
+  <p><span class="small-text"><strong>Project Manager:</strong></span></p>
+  <p><span class="small-text">0811-8176-655</span></p>
+  <p><span class="small-text"><strong>GPS Coordinator:</strong></span></p>
+  <p><span class="small-text">0813-1779-0919</span></p>
+</div>
+
+  </div>
+
+  
+
+  <div class="main-content" id="mainContent">
+    <div class="topbar">
+    <a href="prohibited.html" class="top-btn">PROHIBITED ITEMS</a>
+    <a href="rules.html" class="top-btn">ATTENDANCE</a>
+    <a href="appearence.html" class="top-btn">APPEARANCE</a>
+  </div>
+
+    <h1>Digital SPHB</h1>
+
+    <div class="book-container">
+      <div class="book-box" id="bookBox" style="padding:0; border-radius:10px; overflow:hidden;">
+        <iframe
+          style="width: 100%; height: 600px; border: none;" 
+          src="https://online.fliphtml5.com/xyjcp/wcet/?1765073068006">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR TOGGLE -->
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const mainContent = document.getElementById('mainContent');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      mainContent.classList.toggle('expanded');
+    });
+  </script>
+
+  <!-- AUTO-COLLAPSE ON SMALL SCREEN -->
+<script>
+  function autoCollapseSidebar() {
+    if (window.innerWidth < 700) { 
+      sidebar.classList.add('collapsed');
+      mainContent.classList.add('expanded');
+    } else {
+      sidebar.classList.remove('collapsed');
+      mainContent.classList.remove('expanded');
+    }
+  }
+
+  // Run on load
+  autoCollapseSidebar();
+
+  // Run whenever window resizes
+  window.addEventListener('resize', autoCollapseSidebar);
+</script>
+
+<script>
+ const contactToggle = document.querySelector(".contact-toggle");
+const contactDropdown = document.querySelector(".contact-dropdown");
+
+contactToggle.addEventListener("click", () => {
+  contactDropdown.classList.toggle("open");
+  contactToggle.classList.toggle("active"); // this now rotates the arrow!
+});
+
+
+</script>
+
+</body>
+</html>

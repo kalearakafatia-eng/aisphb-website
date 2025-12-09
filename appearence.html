@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appearence</title>
+  <link rel="stylesheet" href="appearence.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Floating Toggle Button -->
+<div id="video-toggle">▶</div>
+
+<!-- Slide-out Video Panel -->
+<div id="video-panel-side">
+  <video src="images/uniform-vid.mp4" controls></video>
+</div>
+
+
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <button class="toggle-btn" id="toggleBtn" aria-label="Toggle menu">☰</button>
+
+    <img src="images/gps-sphb-logo.png" alt="GPSLOGO" class="GpsPic">
+
+
+<a href="index.html" class="nav-btn">
+  <img src="images/home-icon.png" class="icon-img" id="iconss">
+  <span>Home</span>
+</a>
+
+<a href="chat.html" class="nav-btn">
+  <img src="images/chat-icon.png" class="icon-img" id="iconss">
+  <span>Chat</span>
+</a>
+
+
+    <p class="item contact-toggle">
+  <span class="icon">
+    <img src="images/contact-icon.png" class="icon-img">
+  </span>
+  <span class="text">Contacts</span>
+  <span class="dropdown-icon"><</span>
+</p>
+
+<div class="contact-dropdown">
+  <p><span class="small-text"><strong>Project Manager:</strong></span></p>
+  <p><span class="small-text">0811-8176-655</span></p>
+  <p><span class="small-text"><strong>GPS Coordinator:</strong></span></p>
+  <p><span class="small-text">0813-1779-0919</span></p>
+</div>
+
+  </div>
+
+  
+
+  <div class="main-content" id="mainContent">
+    <div class="topbar">
+    <a href="prohibited.html" class="top-btn">PROHIBITED ITEMS</a>
+    <a href="rules.html" class="top-btn">ATTENDANCE</a>
+    <a href="book.html" class="top-btn">BOOK</a>
+  </div>
+  
+  <div class="inside-content">
+  <h2>Appearance</h2>
+
+<div class="card-grid">
+    <div class="card">
+      <h3>Senin</h3>
+      <p>Putra: Kemeja putih, celana abu-abu GPS, dasi, blazer, topi, sepatu hitam, kaos kaki putih GPS</p>
+      <p>Putri: Kemeja putih, rok abu-abu GPS, dasi, blazer, topi, sepatu hitam (bukan flat), kaos kaki putih GPS</p>
+      <div class="img-box">
+        <img src="images/monday-uniform.png" alt="Senino">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Selasa</h3>
+      <p>Putra & Putri: Seragam Pramuka lengkap, sepatu hitam (bukan flat untuk putri), kaos kaki hitam Pramuka, dan ikat pinggang Pramuka (putra)</p>
+      <div class="img-box">
+        <img src="images/tuesday-uniform.png" alt="Senino">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Rabu</h3>
+      <p>Putra: Kemeja batik lengan pendek (berkerah dan berkancing), celana abu-abu GPS, sepatu hitam, kaos kaki putih GPS</p>
+      <p>Putri: Kemeja batik lengan pendek (berkerah dan berkancing), rok abu-abu GPS, sepatu hitam (bukan flat), kaos kaki putih GPS</p>
+      <div class="img-box">
+        <img src="images/wednesday-uniform.png" alt="Senino">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Kamis</h3>
+      <p>Putra: Kaos outing, celana abu-abu GPS, sepatu, dan kaos kaki bebas</p>
+      <p>Putri: Kaos outing, rok abu-abu GPS, sepatu (bukan flat), dan kaos kaki bebas</p>
+      <div class="img-box">
+        <img src="images/kamis-uniform.png" alt="Senino">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Jumat</h3>
+      <p>Putra: Kemeja putih, celana abu-abu GPS, hoodie, sepatu, dan kaos kaki putih GPS</p>
+      <p>Putri: Kemeja putih, rok abu-abu GPS, hoodie, sepatu (bukan flat), dan kaos kaki putih GPS</p>
+      <div class="img-box">
+        <img src="images/friday-uniform.png" alt="Senino">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>PE</h3>
+      <p>Putra dan Putri: Seragam olahraga dan sepatu olahraga bebas</p>
+      <div class="img-box">
+        <img src="images/PE-uniform.png" alt="Senino">
+      </div>
+    </div>
+
+    
+</div>
+  </div>
+
+  <!-- SIDEBAR TOGGLE -->
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const mainContent = document.getElementById('mainContent');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      mainContent.classList.toggle('expanded');
+    });
+  </script>
+
+  <!-- AUTO-COLLAPSE ON SMALL SCREEN -->
+<script>
+  function autoCollapseSidebar() {
+    if (window.innerWidth < 700) { 
+      sidebar.classList.add('collapsed');
+      mainContent.classList.add('expanded');
+    } else {
+      sidebar.classList.remove('collapsed');
+      mainContent.classList.remove('expanded');
+    }
+  }
+
+  // Run on load
+  autoCollapseSidebar();
+
+  // Run whenever window resizes
+  window.addEventListener('resize', autoCollapseSidebar);
+</script>
+
+<script>
+ const contactToggle = document.querySelector(".contact-toggle");
+const contactDropdown = document.querySelector(".contact-dropdown");
+
+contactToggle.addEventListener("click", () => {
+  contactDropdown.classList.toggle("open");
+  contactToggle.classList.toggle("active"); // this now rotates the arrow!
+});
+</script>
+
+<script>
+  const toggle = document.getElementById("video-toggle");
+const panel = document.getElementById("video-panel-side");
+
+toggle.addEventListener("click", () => {
+  panel.classList.toggle("open");
+  toggle.classList.toggle("open");
+});
+
+</script>
+
+</body>
+</html>

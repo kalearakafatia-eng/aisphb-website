@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appearence</title>
+  <link rel="stylesheet" href="rules.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+ <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <button class="toggle-btn" id="toggleBtn" aria-label="Toggle menu">☰</button>
+
+    <img src="images/gps-sphb-logo.png" alt="GPSLOGO" class="GpsPic">
+
+
+<a href="index.html" class="nav-btn">
+  <img src="images/home-icon.png" class="icon-img" id="iconss">
+  <span>Home</span>
+</a>
+
+<a href="chat.html" class="nav-btn">
+  <img src="images/chat-icon.png" class="icon-img" id="iconss">
+  <span>Chat</span>
+</a>
+
+
+    <p class="item contact-toggle">
+  <span class="icon">
+    <img src="images/contact-icon.png" class="icon-img">
+  </span>
+  <span class="text">Contacts</span>
+  <span class="dropdown-icon"><</span>
+</p>
+
+<div class="contact-dropdown">
+  <p><span class="small-text"><strong>Project Manager:</strong></span></p>
+  <p><span class="small-text">0811-8176-655</span></p>
+  <p><span class="small-text"><strong>GPS Coordinator:</strong></span></p>
+  <p><span class="small-text">0813-1779-0919</span></p>
+</div>
+
+  </div>
+  
+
+  <div class="main-content" id="mainContent">
+    <div class="topbar">
+    <a href="prohibited.html" class="top-btn">PROHIBITED ITEMS</a>
+    <a href="appearence.html" class="top-btn">APPEARANCE</a>
+    <a href="book.html" class="top-btn">BOOK</a>
+  </div>
+  
+  <div class="inside-content">
+    <h2>Attendance</h2>
+ <div class="attendance-wrapper">
+  <div class="attendance-section">
+    
+    <p><strong>Kehadiran murid:</strong></p>
+
+    <table class="attendance-table">
+      <tr>
+        <th>Hari<br><span class="sub">Waktu</span></th>
+        <th>Senin<br><span class="sub">06.45 s/d 15.30</span></th>
+        <th>Selasa<br><span class="sub">07.00 s/d 16.00</span></th>
+        <th>Rabu<br><span class="sub">07.00 s/d 15.30</span></th>
+        <th>Kamis<br><span class="sub">06.45 s/d 16.00</span></th>
+        <th>Jumat<br><span class="sub">07.00 s/d 11.15</span></th>
+      </tr>
+    </table>
+<ul>
+      <li>Murid wajib melakukan scanning ID Card sebagai bukti kehadiran di sekolah.</li>
+    </ul>
+    <ul>
+      <li>Kehadiran di sekolah minimal 90% dari jumlah hari efektif sekolah setiap semester.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="late-section">
+  <p><strong>Murid yang datang terlambat akan mendapat sanksi sebagai berikut :</strong></p>
+
+  <table class="late-table">
+    <tr>
+      <th>Frekuensi</th>
+      <th>Konsekuensi</th>
+    </tr>
+
+    <tr>
+      <td>1 kali</td>
+      <td>
+        Murid dapat mengikuti proses pembelajaran dengan menunjukkan 
+        <i>student pass</i> yang ditandatangani oleh guru piket/kesiswaan.
+      </td>
+    </tr>
+
+    <tr>
+      <td>2 kali</td>
+      <td>
+        Murid dapat mengikuti proses pembelajaran dengan menunjukkan 
+        <i>student-pass</i> yang sudah ditandatangani oleh guru piket/kesiswaan 
+        dan akan diberikan surat pemberitahuan ke-1 kepada orang tua tentang keterlambatan ke-2.
+      </td>
+    </tr>
+
+    <tr>
+      <td>3 kali atau lebih</td>
+      <td>
+        Murid dapat mengikuti proses pembelajaran dengan menunjukkan 
+        <i>student-pass</i> yang sudah ditandatangani oleh guru piket/kesiswaan 
+        dan akan diberikan surat pemberitahuan kepada orang tua tentang keterlambatan ke-3 atau lebih 
+        dan murid melaksanakan social work (<i>speech</i>) di kegiatan sekolah.
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+</div>
+
+  </div>
+
+  <!-- SIDEBAR TOGGLE -->
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const mainContent = document.getElementById('mainContent');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+      mainContent.classList.toggle('expanded');
+    });
+  </script>
+
+  <!-- AUTO-COLLAPSE ON SMALL SCREEN -->
+<script>
+  function autoCollapseSidebar() {
+    if (window.innerWidth < 700) { 
+      sidebar.classList.add('collapsed');
+      mainContent.classList.add('expanded');
+    } else {
+      sidebar.classList.remove('collapsed');
+      mainContent.classList.remove('expanded');
+    }
+  }
+
+  // Run on load
+  autoCollapseSidebar();
+
+  // Run whenever window resizes
+  window.addEventListener('resize', autoCollapseSidebar);
+</script>
+
+<script>
+ const contactToggle = document.querySelector(".contact-toggle");
+const contactDropdown = document.querySelector(".contact-dropdown");
+
+contactToggle.addEventListener("click", () => {
+  contactDropdown.classList.toggle("open");
+  contactToggle.classList.toggle("active"); // this now rotates the arrow!
+});
+</script>
+
+
+</body>
+</html>

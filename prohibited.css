@@ -1,0 +1,398 @@
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  background-image: url("images/book-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+/* sidebar */
+.sidebar {
+  background-image: url("images/sidebar-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  width: 250px;
+  background-color: #e5dbdb;
+  border-right: 5px solid #eb4c4c;
+  color: #eb4c4c;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  box-sizing: border-box;
+  transition: width 0.28s ease;
+  overflow-y: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  }
+
+.sidebar {
+  overflow-y: auto;
+  scrollbar-width: thin;          /* Firefox */
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 3px;
+}
+
+.GpsPic {
+  height: 150px;
+  align-self: center;
+}
+
+.sidebar.collapsed .GpsPic {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Contact dropdown hidden by default */
+.contact-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding-left: 50px;
+  transition: max-height 0.3s ease;
+}
+
+.contact-dropdown p {
+  margin: 0;    /* make vertical spacing very small */
+  line-height: 1; /* optional: makes text even tighter */
+}
+
+/* When open */
+.contact-dropdown.open {
+  max-height: 200px;
+}
+
+/* Dropdown icon style */
+.dropdown-icon {
+  transition: transform 0.3s ease;
+  display: inline-block;
+  color: #c63030;
+}
+
+/* Rotate when dropdown is open */
+.contact-toggle.active .dropdown-icon {
+  transform: rotate(-90deg);
+}
+
+/* Hide arrow when sidebar is collapsed */
+.sidebar.collapsed .dropdown-icon {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.item {
+  padding-left: 15px;
+}
+
+.text {
+  font-weight: bold;
+  color: #c63030;
+  font-size: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;   /* vertically center icon + text */
+  gap: 10px;             /* space between icon and text */
+}
+
+.icon-img {
+  width: 24px;           /* adjust size if needed */
+  height: 24px;
+}
+
+
+.small-text {
+  color: #646a87;
+  font-size: small;
+}
+
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 15px;
+  margin: 8px 0;
+  margin-left: 15px;
+
+  background: white;
+  border: 2px solid #db3a3a;
+  border-radius: 12px;
+
+  text-decoration: none;    /* remove underline */
+  font-size: 20px;
+  font-weight: bold;
+  color: #c63030;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 8px rgb(198, 118, 118);
+}
+
+.nav-btn:hover {
+  background: #f2f2f2;
+  transform: translateY(-2px);
+}
+
+.nav-btn:active {
+  transform: translateY(0px);
+}
+
+.icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+
+
+/* collapsed sidebar */
+.sidebar.collapsed {
+  width: 60px;
+  align-items: center;
+}
+
+/* menu items */
+.sidebar h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.sidebar p {
+  margin: 10px 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 100%;
+}
+
+.sidebar a { color: #c63030; text-decoration: none; display: inline-block; width:100%; }
+
+/* hide text when collapsed */
+.sidebar.collapsed h2,
+.sidebar.collapsed .text,
+.sidebar.collapsed .big-text,
+.sidebar.collapsed .small-text {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.collapsed .nav-btn span {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sidebar.collapsed .nav-btn {
+  padding: 12px;     /* square button */
+  justify-content: center;
+  margin-left: 0;     /* keep aligned */
+  width: 48px;        /* perfect for round-ish icon button */
+}
+
+.sidebar.collapsed .icon-img {
+  width: 26px;
+  height: 26px;
+}
+
+/* --- Collapsed sidebar: show ONLY the icon, hide button chrome --- */
+.sidebar.collapsed .nav-btn {
+  /* remove visual button chrome */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 6px !important;
+  margin-left: 0 !important;
+
+  /* shrink to icon size and center the icon */
+  width: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* hide the text inside the link (smoothly) */
+.sidebar.collapsed .nav-btn span {
+  display: inline-block;
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* make icon slightly bigger & sit nicely when collapsed */
+.sidebar.collapsed .nav-btn .icon-img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+/* remove left padding on the item wrapper when collapsed */
+.sidebar.collapsed .item,
+.sidebar.collapsed .nav-btn {
+  padding-left: 0;
+}
+
+/* If you want icons centered in the collapsed sidebar column */
+.sidebar.collapsed {
+  align-items: center;
+}
+
+
+
+.sidebar.collapsed .item {
+  padding-left: 0px;
+}
+
+
+/* main content */
+.main-content {
+  margin-left: 250px;
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0px;
+  padding-bottom: 0;
+  flex: 1;
+  transition: margin-left 0.28s ease;
+  
+}
+
+.main-content.expanded {
+  margin-left: 60px;
+}
+
+.textss {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.textss h1 {
+  font-size: 35px;
+  padding-left: 20px;
+}
+
+.bullet-list li {
+  margin-bottom: 40px; /* adds space between bullet points */
+  text-align: justify;
+  padding-right: 50px;
+}
+
+
+/* toggle button inside sidebar */
+.toggle-btn {
+  background-color: #eb4c4c;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: all 0 .28s;
+  border-radius: 6px;
+}
+
+/* when collapsed, keep button centered and small */
+.sidebar.collapsed .toggle-btn {
+  align-self: center;
+  padding: 8px;
+}
+
+/* ensure icons (if any) remain visible when collapsed */
+.icon { display:inline-block; width:24px; text-align:center; margin-right:8px; }
+
+/* responsive tweak (optional) */
+@media (max-width:700px) {
+  .sidebar { position: fixed; z-index: 40; }
+}
+
+/* TOPBAR (Buttons Row) */
+.topbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+  background: #e5e5e5;
+  border-bottom: 4px solid #ff7070;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin-left: 0px;
+}
+
+.top-btn {
+  background: #e3351a;
+  color: white;
+  padding: 22px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  transition: 0.2s;
+  flex: 1;
+  margin: 1 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0 4px 8px rgb(165, 17, 17);
+}
+
+.top-btn:hover {
+  background: #FF2A0B;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+
+  .topbar {
+    padding: 8px 0;      /* thinner */
+    gap: 20px;
+    background: #e5e5e5;
+    margin-left: -5px;
+  }
+
+  .topbar .top-btn {
+    background: none;    /* remove red button */
+    padding: 6px 10px;
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.0);
+  }
+
+  .top-btn:hover {
+    background: #d4bbbb;
+  transform: translateY(-2px);
+  }
+}
