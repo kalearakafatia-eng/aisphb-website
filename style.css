@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: "Manrope", sans-serif;
@@ -492,11 +493,20 @@ html, body {
 @media (max-width: 900px) {
  .mobile-buttons {
    display: grid;
-   grid-template-columns: repeat(2, auto);
+   grid-template-columns: 1fr 1fr;
+
    justify-content: center;
    gap: 40px;
    padding: 40px;
  }
+
+ .mobile-buttons {
+    width: 100%;
+    max-width: 420px;   /* ✅ KEY LINE */
+    margin: 0 auto;     /* centers the whole block */
+    padding: 24px;
+    box-sizing: border-box;
+  }
 
 
  .mobile-btn {
@@ -539,6 +549,7 @@ html, body {
  /* RECTANGLE BUTTONS UNDER THE SQUARES */
 .mobile-rect-btn {
  width: 100%;
+box-sizing: border-box;
  max-width: 280px;
  height: 60px;
  background: #efc1c1;
