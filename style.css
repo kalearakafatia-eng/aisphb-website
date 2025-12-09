@@ -1,9 +1,8 @@
-
 body {
   margin: 0;
   font-family: "Manrope", sans-serif;
   background: #d7e9ff;
-  padding-top: 70px; 
+  padding-top: 46px; 
 }
 
 body {
@@ -105,7 +104,7 @@ html, body {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 100px;
+  width: 70px;
 }
 
 .home-logo {
@@ -450,6 +449,14 @@ html, body {
 }
 
 
+@media (max-width: 900px) {
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+}
 
 
 /* Hide slide-up panels and mobile buttons on big screens */
@@ -475,6 +482,12 @@ html, body {
 
 }
 
+@media (max-width: 900px) {
+  .mobile-buttons {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
 
 @media (max-width: 900px) {
  .mobile-buttons {
