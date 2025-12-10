@@ -13,6 +13,24 @@ body {
   background-repeat: repeat;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden; /* ⛔ body must NOT scroll */
+  font-family: "Manrope", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+
 /* sidebar */
 .sidebar {
   background-image: url("images/sidebar-bg.png");
@@ -278,14 +296,14 @@ body {
 
 /* main content */
 .main-content {
-  margin-left: 250px;
-  padding-top: 0;
-  padding-right: 0;
-  padding-left: 0px;
-  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+
   flex: 1;
+  margin-left: 250px;
   transition: margin-left 0.28s ease;
 }
+
 
 .main-content.expanded {
   margin-left: 60px;
@@ -386,23 +404,84 @@ body {
 
 
 
-    .book-container {
-  display: flex;
-  flex-direction: column;
-  height:500px;
-  max-width: 800px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
 
-.book-box {
+.inside-content {
   flex: 1;
   overflow-y: auto;
   padding: 10px;
+  min-height: 0;
+}
+
+
+
+@media (max-width: 600px) {
+  .inside-content {
+    padding: 12px;            /* ✅ smaller but still safe */
+  }
+}
+
+
+
+.inside-content,
+.book-container,
+.book-box {
+  min-height: 0;
+}
+
+
+.book-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+
+  max-width: 800px;
+  margin: 10px auto;
+
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+
+  /* ✅ THIS is the key */
+  height: 100%;
+}
+
+
+
+@media (max-width: 768px) {
+  .book-container {
+    padding-bottom: 90px; /* space for Safari bottom bar */
+  }
+}
+
+
+.book-box {
+  flex: 1;
+  min-height: 0;          /* ✅ CRITICAL for flex + iframe */
+  overflow: hidden;
+
+  border-radius: 8px;
+}
+
+.book-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+@media (max-width: 600px) {
+  .book-container {
+    height: calc(100vh - 90px);
+    padding: 5px;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
 }
