@@ -25,6 +25,7 @@ html, body {
 
 
 
+
 .navbar {
   width: 100%;
   background: #277dc9;
@@ -736,6 +737,10 @@ box-sizing: border-box;
 }
 
 }
+
+
+
+
 
 /* SHARED PRELOADER STYLES */
 #preloader,

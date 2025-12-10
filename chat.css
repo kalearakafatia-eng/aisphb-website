@@ -366,6 +366,7 @@ html, body {
   }
 }
 
+
 .inside-content {
   flex: 1;
   display: flex;      /* 🔥 IMPORTANT */
@@ -374,8 +375,6 @@ html, body {
   padding: 16px;
   min-height: 0;      /* 🔥 IMPORTANT */
 }
-
-
 
 
 @media (max-width: 600px) {

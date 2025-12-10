@@ -12,6 +12,8 @@ body {
   background-repeat: repeat;
 }
 
+
+
 /* Floating button */
 #video-toggle {
   position: fixed;
@@ -60,6 +62,8 @@ body {
 #video-toggle.open {
   transform: translateX(-250px); /* move button with panel */
 }
+
+
 
 
 
@@ -487,3 +491,5 @@ body {
   transform: translateY(-2px);
   }
 }
+
+

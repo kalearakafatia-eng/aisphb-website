@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Chat</title>
   <link rel="stylesheet" href="chat.css">
+  <link rel="stylesheet" href="shared.css">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="light">
 </head>
 <body>
 
@@ -67,6 +69,12 @@
     </div>
   </div>
 
+  <div id="desktop-notice" class="desktop-notice">
+  <p>This site is best experienced on desktop.</p>
+  <button id="notice-ok">OK</button>
+</div>
+
+
   <!-- SIDEBAR TOGGLE -->
   <script>
     const sidebar = document.getElementById('sidebar');
@@ -107,6 +115,8 @@ contactToggle.addEventListener("click", () => {
   contactToggle.classList.toggle("active"); // this now rotates the arrow!
 });
 </script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
