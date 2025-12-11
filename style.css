@@ -598,6 +598,7 @@ box-sizing: border-box;
 }
 
 
+
 .slide-panel.open {
  bottom: 0;
 }
@@ -713,6 +714,7 @@ box-sizing: border-box;
   height: auto;
   border-radius: 6px;
   object-fit: cover;   /* or contain, depending on look */
+  background-color: #333;
 }
 
 
